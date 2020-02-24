@@ -1,5 +1,5 @@
 class LairsController < ApplicationController
-  before_action :set_lair, only: [:show, :edit, :destroy]
+  before_action :set_lair, only: [:show, :edit, :update, :destroy]
 
   def index
     @lairs = Lair.all
@@ -25,7 +25,6 @@ class LairsController < ApplicationController
   def edit; end
 
   def update
-    @lair = Lair.new(lair_params)
     if @lair.update(lair_params)
       redirect_to lair_path(@lair)
     else

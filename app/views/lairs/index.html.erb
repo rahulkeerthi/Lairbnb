@@ -1,0 +1,9 @@
+<h1>Lairs#index</h1>
+
+<% @lairs.each do |lair| %>
+  <div>
+    <p><%= link_to lair.title, lair_path(lair) %></p>
+  </div>
+<% end %>
+
+<%= link_to "Go back", root_path %>

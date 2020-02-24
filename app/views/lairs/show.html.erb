@@ -1,0 +1,7 @@
+<h1>Lairs#show</h1>
+
+<h2><%= @lair.title %></h2>
+
+<%= link_to "Edit", edit_lair_path(@lair) %>
+| <%= link_to "Delete", lair_path(@lair), method: :delete %>
+| <%= link_to "Go back", lairs_path %>

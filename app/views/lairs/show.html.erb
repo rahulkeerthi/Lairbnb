@@ -1,8 +1,0 @@
-<h1><%= @lair.title %> | <%= @lair.location %></h2>
-<h2>$<%= @lair.price_per_night %></h2>
-<p>Hosted by <%= link_to @lair.user.hero_name, user_path(@lair.user) %></p>
-<p><%= @lair.description %></p>
-
-<%= link_to "Edit", edit_lair_path(@lair) %>
-| <%= link_to "Delete", lair_path(@lair), method: :delete %>
-| <%= link_to "Go back", lairs_path %>

@@ -78,48 +78,48 @@ User.create(email: "loki@asgard.universe",
   bio: "Loki was born on Jotunheim as the son of the Frost Giant King, Laufey. Small and weak for a Frost Giant, Loki was abandoned by his father in a temple, being left to die. In 965 A.D., not long after the war between the Giants and the Asgardians, Loki was found by King Odin. Adopting Loki and using sorcery to alter his appearance to make him appear to be an Asgardian, Odin raised Loki and his biological son, Thor, with his wife Frigga. As they grew up, Loki always felt that he was always living in Thor's shadow, envious to the fact that Thor was meant to be king instead of him")
 
 # Batcave
-Lair.create!(title: "Batcave",
+Lair.create(title: "Batcave",
   location: "Gotham city",
   description: "Nice place to meet and sort out plans to save the universe. Comes with a ton of cool tech equipment",
-  price_per_night: 10,
+  price_per_night: 80,
   is_hero_lair: true,
   user_id: 2)
 # Fortress of Solitude
 Lair.create(title: "Fortress of Solitude",
   location: "Arctic Cricle",
   description: "Pretty large but very lonely fortress made out of ice. Nice if you want to calm down",
-  price_per_night: 10,
+  price_per_night: 100,
   is_hero_lair: true,
   user_id: 1)
 # Jabba's Palace
 Lair.create(title: "Jabba's Palace",
   location: "Tatooine",
   description: "Great palace in the middle of nowhere. Don't worry, Darth Vader will never come and visit",
-  price_per_night: 10,
+  price_per_night: 90,
   is_hero_lair: false,
   user_id: 10)
 # Death Star
 Lair.create(title: "Death Star",
   description: "Gigantic moon-like space ship with the power to destroy planets",
   location: "Alderaan's orbit",
-  price_per_night: 100,
+  price_per_night: 200,
   is_hero_lair: false,
   user_id: 6)
 
 Booking.create(start_date: "2020-02-20",
-end_date: "2020-03-20",
+end_date: "2020-02-22",
 user_id: 3,
 lair_id: 1,
 total_cost: 195204)
 
-Booking.create(start_date: "2020-02-20",
-end_date: "2020-03-20",
+Booking.create(start_date: "2020-02-21",
+end_date: "2021-02-23",
 user_id: 6,
 lair_id: 4,
-total_cost: 9987667)
+total_cost: 99)
 
-Booking.create(start_date: "2020-02-20",
-end_date: "2020-03-20",
+Booking.create(start_date: "2020-02-22",
+end_date: "2023-02-24",
 user_id: 9,
 lair_id: 3,
-total_cost: 9987667)
+total_cost: 89)

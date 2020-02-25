@@ -1,10 +1,10 @@
 .character-card {
-  width: 50%;
-  border: 1px solid #5A5A5A;
+  width: 60%;
+  height: 100%;
+  border: 3px solid black;
   text-align: center;
   padding: 20px;
   margin-right: 24px;
-  border-radius: 6px;
 }
 
 .icon {
@@ -21,15 +21,14 @@
 }
 
 .name-bar {
-  border-top: 1px solid #5A5A5A;
-  border-bottom: 1px solid #5A5A5A;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   margin: 20px 0 20px 0;
 }
 
 .lairs {
-  border: 1px solid #5A5A5A;
+  border: 3px solid black;
   padding: 20px;
-  border-radius: 6px;
   h3 {
     margin-bottom: 30px;
   }
@@ -39,10 +38,9 @@
 }
 
 .bookings {
-  border: 1px solid #5A5A5A;
+  border: 3px solid black;
   width: 100%;
   margin-bottom: 24px;
-  border-radius: 6px;
   padding: 20px;
 }
 .keine-decoration {

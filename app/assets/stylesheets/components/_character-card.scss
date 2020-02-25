@@ -1,0 +1,52 @@
+.character-card {
+  width: 60%;
+  height: 100%;
+  border: 3px solid black;
+  text-align: center;
+  padding: 20px;
+  margin-right: 24px;
+}
+
+.icon {
+  margin: 0 auto;
+}
+
+.container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.character-lair {
+  display: flex;
+}
+
+.name-bar {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 20px 0 20px 0;
+}
+
+.lairs {
+  border: 3px solid black;
+  padding: 20px;
+  h3 {
+    margin-bottom: 30px;
+  }
+  ul {
+    padding: 0;
+  }
+}
+
+.bookings {
+  border: 3px solid black;
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 20px;
+}
+.keine-decoration {
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}

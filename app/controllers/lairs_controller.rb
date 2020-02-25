@@ -14,7 +14,7 @@ class LairsController < ApplicationController
   def create
     @lair = Lair.new(lair_params)
     @lair.user = current_user # store the user or user id??
-    current_user.is_hero ? @lair.is_hero_lair = true : @lair.is_hero_lair = false # check if creator is hero then sets lair hero status accordingly
+    @lair.is_hero_lair = current_user.is_hero # set lair to same boolean as creator hero status
     if @lair.save
       redirect_to lair_path(@lair)
     else

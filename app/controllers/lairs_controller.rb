@@ -13,8 +13,8 @@ class LairsController < ApplicationController
 
   def create
     @lair = Lair.new(lair_params)
-    @lair.user_id = @user.id # store the user or user id??
-    @user.is_hero ? @lair.is_hero_lair = true : @lair.is_hero_lair = false # check if creator is hero then sets lair hero status accordingly
+    @lair.user = current_user # store the user or user id??
+    current_user.is_hero ? @lair.is_hero_lair = true : @lair.is_hero_lair = false # check if creator is hero then sets lair hero status accordingly
     if @lair.save
       redirect_to lair_path(@lair)
     else
@@ -34,7 +34,7 @@ class LairsController < ApplicationController
 
   def destroy
     @lair.destroy
-    redirect_to user_path(@user)
+    redirect_to user_path(current_user)
   end
 
   private

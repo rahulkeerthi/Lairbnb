@@ -5,7 +5,11 @@ class LairsController < ApplicationController
     @lairs = Lair.all
   end
 
-  def show; end
+  def show
+    # boolean @owner to know whether the current user is the owner of the lair
+    @user = @lair.user
+    @owner = @user == current_user ? true : false
+  end
 
   def new
     @lair = Lair.new

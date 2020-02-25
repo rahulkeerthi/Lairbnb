@@ -3,6 +3,8 @@
 <p>Hosted by <%= link_to @lair.user.hero_name, user_path(@lair.user) %></p>
 <p><%= @lair.description %></p>
 
-<%= link_to "Edit", edit_lair_path(@lair) %>
-| <%= link_to "Delete", lair_path(@lair), method: :delete %>
-| <%= link_to "Go back", lairs_path %>
+<% if @owner %>
+  <%= link_to "Edit", edit_lair_path(@lair) %> |
+  <%= link_to "Delete", lair_path(@lair), method: :delete %> |
+  <%= link_to "Go back", lairs_path %>
+<% end %>

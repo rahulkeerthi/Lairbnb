@@ -1,15 +1,12 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
 
-  def index
-    @bookings = Booking.all
-  end
-
   def show
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
   end
 
   def destroy

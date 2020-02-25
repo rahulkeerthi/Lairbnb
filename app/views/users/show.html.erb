@@ -2,18 +2,45 @@
 <h2>Alter Ego: <%= @user.alterego %></h2>
 <p>Bio: <%= @user.bio %></p>
 
-<ul>
-  <% @user.lairs.each do |lair| %>
-  <div>
-    <li>
-      <%= link_to lair_path(lair) do %>
-        <%= lair.title %> | <%= lair.location %>
-      <% end %>
-    </li>
-  </div>
-  <% end %>
-</ul>
+<div>
+  <h3> <%= @user.hero_name %>'s Lairs </h3>
+  <ul>
+    <% @user.lairs.each do |lair| %>
+    <div>
+      <li>
+        <%= link_to lair_path(lair) do %>
+          <%= lair.title %> | <%= lair.location %>
+        <% end %>
+      </li>
+    </div>
+    <% end %>
+  </ul>
+</div>
 
 <% if @owner %>
   <%= link_to "Host a new lair", new_lair_path %>
 <% end %>
+
+<% if @owner %>
+
+  <div>
+    <h3> Your bookings </h3>
+    <ul>
+      <% @user.bookings.each do |booking| %>
+
+      <div>
+        <li>
+          <%= link_to booking_path(booking) do %>
+            <%= booking.start_date %>/ <%= booking.end_date %> -
+            <%= booking.lair.title %> | <%= booking.total_cost %>
+          <% end %>
+        </li>
+      </div>
+
+      <% end %>
+    </ul>
+  </div>
+
+<% end %>
+
+

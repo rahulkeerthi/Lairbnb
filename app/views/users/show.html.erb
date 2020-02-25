@@ -3,7 +3,7 @@
 <p><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
 <% end %>
 <h2>Alter Ego: <%= @user.alterego %></h2>
-<%= cl_image_tag(@user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
+<%= cl_image_tag(@user.photo, width: 150, height: 150, crop: :thumb, gravity: :face) %>
 
 <h3>Bio: <%= @user.bio %></h3>
 

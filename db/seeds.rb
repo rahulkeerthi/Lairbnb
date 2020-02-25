@@ -83,33 +83,48 @@ user = User.create(email: "loki@asgard.universe",
 user.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642714/Lewagon-Lairbnb/users/loki_l4jyak.jpg"), filename: 'loki.jpg', content_type: 'image/jpg')
 
 # Batcave
-Lair.create(title: "Batcave",
+lair = Lair.create(title: "Batcave",
   location: "Gotham city",
   description: "Nice place to meet and sort out plans to save the universe. Comes with a ton of cool tech equipment",
   price_per_night: 80,
   is_hero_lair: true,
   user_id: 2)
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642735/Lewagon-Lairbnb/lairs/batcave1_buwgx8.jpg"), filename: 'batcave1.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642735/Lewagon-Lairbnb/lairs/batcave2_s1uw0k.jpg"), filename: 'batcave2.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642735/Lewagon-Lairbnb/lairs/batcave3_vvw3jp.jpg"), filename: 'batcave3.jpg', content_type: 'image/jpg')
+
 # Fortress of Solitude
-Lair.create(title: "Fortress of Solitude",
+lair = Lair.create(title: "Fortress of Solitude",
   location: "Arctic Cricle",
   description: "Pretty large but very lonely fortress made out of ice. Nice if you want to calm down",
   price_per_night: 100,
   is_hero_lair: true,
   user_id: 1)
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/fortress1_ggf2u5.jpg"), filename: 'fortress1.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/fortress2_jyj09o.webp"), filename: 'fortress2.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/fortress3_tokhoq.jpg"), filename: 'fortress3.jpg', content_type: 'image/jpg')
+
 # Jabba's Palace
-Lair.create(title: "Jabba's Palace",
+lair = Lair.create(title: "Jabba's Palace",
   location: "Tatooine",
   description: "Great palace in the middle of nowhere. Don't worry, Darth Vader will never come and visit",
   price_per_night: 90,
   is_hero_lair: false,
   user_id: 10)
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/jabba1_yjnhih.jpg"), filename: 'palace1.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/jabba2_aerqlr.jpg"), filename: 'palace2.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/jabba3_xngoan.jpg"), filename: 'palace3.jpg', content_type: 'image/jpg')
+
 # Death Star
-Lair.create(title: "Death Star",
+lair = Lair.create(title: "Death Star",
   description: "Gigantic moon-like space ship with the power to destroy planets",
   location: "Alderaan's orbit",
   price_per_night: 200,
   is_hero_lair: false,
   user_id: 6)
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/deathstar1_kdrlxi.jpg"), filename: 'deathstar1.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/deathstar2_lpd7kh.jpg"), filename: 'deathstar2.jpg', content_type: 'image/jpg')
+lair.photo.attach(io: URI.open("https://res.cloudinary.com/rahaluha/image/upload/v1582642734/Lewagon-Lairbnb/lairs/deathstar3_bd3xdm.jpg"), filename: 'deathstar3.jpg', content_type: 'image/jpg')
 
 Booking.create(start_date: "2020-02-20",
 end_date: "2020-02-22",

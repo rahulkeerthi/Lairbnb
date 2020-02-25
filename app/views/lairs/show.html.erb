@@ -3,6 +3,12 @@
 <p>Hosted by <%= link_to @lair.user.hero_name, user_path(@lair.user) %></p>
 <p><%= @lair.description %></p>
 
+<div>
+  <% @lair.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+</div>
+
 <!-- Add JS to the page to dynamically display the total cost -->
 <% if @owner %>
   <%= link_to "Edit", edit_lair_path(@lair) %> |

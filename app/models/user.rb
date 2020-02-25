@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :lairs, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_one_attached :photo
 
   validates :hero_name, presence: true, uniqueness: true
   validates :alterego, presence: true

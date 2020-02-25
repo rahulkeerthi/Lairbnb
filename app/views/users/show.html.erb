@@ -6,3 +6,15 @@
   <li><%= lair.title %> | <%= lair.location %></li>
   <% end %>
 </ul>
+
+<h4>Your bookings:</h4>
+<ul>
+  <% @user.bookings.each do |booking| %>
+  <li>
+    You are staying in: <%= booking.lair.title %>
+    Your host is: <%= booking.lair.user.hero_name %>
+    From: <%= booking.start_date %>
+    To: <%= booking.end_date %>
+  </li>
+  <% end %>
+</ul>

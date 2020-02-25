@@ -7,6 +7,10 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.lair = Lair.find(params[:lair_id])
+
+    @booking.save
+    redirect_to user_path(current_user)
   end
 
   def destroy

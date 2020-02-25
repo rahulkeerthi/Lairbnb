@@ -16,7 +16,7 @@
       <div class="col-sm-12 col-md-6 d-flex justify-content-stretch">
         <div class="lair-card">
           <div class="lair-image">
-            <img src="https://images.unsplash.com/photo-1513384312027-9fa69a360337" alt="superman">
+            <%= cl_image_tag lair.photos.first.key, crop: :fill  %>
           </div>
 
           <div class="d-flex justify-content-stretch lair-content">

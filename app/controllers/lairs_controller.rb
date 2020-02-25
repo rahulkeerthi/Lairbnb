@@ -5,7 +5,9 @@ class LairsController < ApplicationController
     @lairs = Lair.all
   end
 
-  def show; end
+  def show
+    @booking = Booking.new
+  end
 
   def new
     @lair = Lair.new

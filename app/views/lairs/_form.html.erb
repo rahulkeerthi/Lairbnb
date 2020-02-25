@@ -1,0 +1,7 @@
+<%= simple_form_for(@lair) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :location %>
+  <%= f.input :description, hint: 'Keep it short please!' %>
+  <%= f.input :price_per_night, label: 'How much per night?' %>
+  <%= f.submit %>
+<% end %>

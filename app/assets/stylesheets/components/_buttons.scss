@@ -1,0 +1,21 @@
+.button {
+  transform: skewX(-10deg);
+  border: 3px solid black;
+  color: white;
+  font-family: $my-font;
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+.button:hover {
+  box-shadow: none;
+}
+
+.blue-button {
+  background-color: $blue;
+  box-shadow: 4px 4px 1px rgba(0, 130, 249, 0.25);
+}
+.red-button {
+  background-color: $red;
+  box-shadow: 4px 4px 1px rgba(236, 28, 36, 0.25);
+}

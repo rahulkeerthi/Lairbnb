@@ -3,8 +3,12 @@
 <p>Hosted by <%= link_to @lair.user.hero_name, user_path(@lair.user) %></p>
 <p><%= @lair.description %></p>
 
-<%= link_to "Edit", edit_lair_path(@lair) %>
-| <%= link_to "Go back", lairs_path %>
-
-<%= render 'shared/booking_form', booking: @booking %>
 <!-- Add JS to the page to dynamically display the total cost -->
+<% if @owner %>
+  <%= link_to "Edit", edit_lair_path(@lair) %> |
+  <%= link_to "Delete", lair_path(@lair), method: :delete %> |
+<% else %>
+  <%= render 'shared/booking_form', booking: @booking %>
+<% end %>
+
+<%= link_to "Go back", lairs_path %>

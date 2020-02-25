@@ -1,16 +1,16 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300,700|Raleway:400,100,300,700,500|Catamaran:200,400,600&display=swap");
+
+@font-face {
+    font-family: 'Komika Hand';
+    src: url('fonts/Komika_Hand-webfont.woff') format('woff'),
+        url('fonts/Komika_Hand.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+$my-font: "Komika Hand";
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
+$body-font: "Catamaran", "Helvetica", "sans-serif";
+$headers-font: $my-font, "Raleway", "Helvetica", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";

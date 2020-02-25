@@ -1,20 +1,46 @@
 <h1><%= @user.hero_name %></h1>
 <h2>Alter Ego: <%= @user.alterego %></h2>
 <p>Bio: <%= @user.bio %></p>
-<ul>
-  <% @user.lairs.each do |lair| %>
-  <li><%= lair.title %> | <%= lair.location %></li>
-  <% end %>
-</ul>
 
-<h4>Your bookings:</h4>
-<ul>
-  <% @user.bookings.each do |booking| %>
-  <li>
-    You are staying in: <%= booking.lair.title %>
-    Your host is: <%= booking.lair.user.hero_name %>
-    From: <%= booking.start_date %>
-    To: <%= booking.end_date %>
-  </li>
-  <% end %>
-</ul>
+<div>
+  <h3> <%= @user.hero_name %>'s Lairs </h3>
+  <ul>
+    <% @user.lairs.each do |lair| %>
+    <div>
+      <li>
+        <%= link_to lair_path(lair) do %>
+          <%= lair.title %> | <%= lair.location %>
+        <% end %>
+      </li>
+    </div>
+    <% end %>
+  </ul>
+</div>
+
+<% if @owner %>
+  <%= link_to "Host a new lair", new_lair_path %>
+<% end %>
+
+<% if @owner %>
+
+  <div>
+    <h3> Your bookings </h3>
+    <ul>
+      <% @user.bookings.each do |booking| %>
+
+      <div>
+        <li>
+          <%= link_to booking_path(booking) do %>
+            You are staying in: <%= booking.lair.title %> |
+            Your host is: <%= booking.lair.user.hero_name %> |
+            From: <%= booking.start_date %> |
+            To: <%= booking.end_date %>
+          <% end %>
+        </li>
+      </div>
+
+      <% end %>
+    </ul>
+  </div>
+
+<% end %>

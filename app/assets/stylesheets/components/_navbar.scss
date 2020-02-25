@@ -1,9 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $blue;
+  background: white;
+  border-bottom: 5px solid $blue;
   color: white;
   position: fixed;
   width: 100%;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.2)
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -23,8 +25,7 @@
 
 .wordmark {
   font-size: 24px;
-  font-weight: 400;
-  font-family: Raleway;
+  font-family: $my-font;
   margin: 0;
-  color: white;
+  color: $blue;
 }

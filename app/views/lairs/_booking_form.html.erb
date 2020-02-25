@@ -1,0 +1,6 @@
+<%= simple_form_for [@lair, @booking] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :location %>
+  <%= f.description :description %>
+  <%= f.price_per_night :price_per_night %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= simple_form_for [@lair, @booking] do |f| %>
+  <%= @booking.errors.messages.each do |m| %>
+    <p><%= m %></p>
+  <% end %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Book this lair" %>
+<% end %>

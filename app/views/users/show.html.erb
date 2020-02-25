@@ -31,8 +31,10 @@
       <div>
         <li>
           <%= link_to booking_path(booking) do %>
-            <%= booking.start_date %>/ <%= booking.end_date %> -
-            <%= booking.lair.title %> | <%= booking.total_cost %>
+            You are staying in: <%= booking.lair.title %> |
+            Your host is: <%= booking.lair.user.hero_name %> |
+            From: <%= booking.start_date %> |
+            To: <%= booking.end_date %>
           <% end %>
         </li>
       </div>
@@ -42,5 +44,3 @@
   </div>
 
 <% end %>
-
-

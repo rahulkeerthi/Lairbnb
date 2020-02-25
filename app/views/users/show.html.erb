@@ -1,6 +1,9 @@
 <h1><%= @user.hero_name %></h1>
+<% if @owner %>
+<p><%= link_to 'Edit Profile', edit_user_registration_path(current_user) %></p>
+<% end %>
 <h2>Alter Ego: <%= @user.alterego %></h2>
-<p>Bio: <%= @user.bio %></p>
+<h3>Bio: <%= @user.bio %></h3>
 
 <div>
   <h3> <%= @user.hero_name %>'s Lairs </h3>

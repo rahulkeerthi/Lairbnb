@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand d-flex align-items-center justify-content-center" href="#">
+  <%= link_to root_path, class: "navbar-brand d-flex align-items-center justify-content-center" do %>
     <%= image_tag "logo.png", alt: "logo image" %>
     <p class="wordmark">Lairbnb</p>
+  <% end %>
   </a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

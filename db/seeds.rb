@@ -50,7 +50,7 @@ User.create(email: "infinitygauntlet@snap.universe",
   bio: "Born Dione on Saturn’s moon of Titan, Thanos grew up in a peace-loving family. However, he began experimenting on other Titans, which increased Thanos’ obsession with death and genetic experimentation. Possessing the DNA of the Deviants and Eternals made Thanos extremely powerful and resilient. At one point, Thanos exposed himself to cosmic rays, which distorted his body")
 # Joker
 User.create(email: "whysoserious@joker.haha",
-  password: "clownsarescary",
+  password: "<clownsarescary></clownsarescary>",
   hero_name: "The Joker",
   alterego: "unknown",
   is_hero: false,

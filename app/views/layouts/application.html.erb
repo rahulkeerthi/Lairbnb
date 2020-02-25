@@ -10,12 +10,6 @@
   </head>
 
   <body>
-    <!--This is to display message on login-->
-    <% flash.each do |name, msg| %>
-            <%= content_tag(:div, msg, class: "alert alert-info") %>
-
-    <% end %>
-
     <div class="page-container">
       <%= render 'shared/navbar' %>
       <div class="content-wrap">

@@ -30,12 +30,10 @@
 
       <div>
         <li>
-          <%= link_to lair_booking_path(booking) do %>
-            You are staying in: <%= booking.lair.title %> |
-            Your host is: <%= booking.lair.user.hero_name %> |
-            From: <%= booking.start_date %> |
-            To: <%= booking.end_date %>
-          <% end %>
+          You are staying in: <%= booking.lair.title %> |
+          Your host is: <%= booking.lair.user.hero_name %> |
+          From: <%= booking.start_date %> |
+          To: <%= booking.end_date %>
         </li>
       </div>
 

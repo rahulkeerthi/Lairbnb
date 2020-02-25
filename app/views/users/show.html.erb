@@ -1,44 +1,63 @@
-<h1><%= @user.hero_name %></h1>
-<h2>Alter Ego: <%= @user.alterego %></h2>
-<p>Bio: <%= @user.bio %></p>
-
-<div>
-  <h3> <%= @user.hero_name %>'s Lairs </h3>
-  <ul>
-    <% @user.lairs.each do |lair| %>
-    <div>
-      <li>
-        <%= link_to lair_path(lair) do %>
-          <%= lair.title %> | <%= lair.location %>
-        <% end %>
-      </li>
-    </div>
-    <% end %>
-  </ul>
-</div>
-
-<% if @owner %>
-  <%= link_to "Host a new lair", new_lair_path %>
-<% end %>
-
-<% if @owner %>
-
-  <div>
-    <h3> Your bookings </h3>
-    <ul>
-      <% @user.bookings.each do |booking| %>
-
-      <div>
-        <li>
-          You are staying in: <%= booking.lair.title %> |
-          Your host is: <%= booking.lair.user.hero_name %> |
-          From: <%= booking.start_date %> |
-          To: <%= booking.end_date %>
-        </li>
+<div class="container">
+  <div class="content d-flex">
+    <div class="character-card">
+      <div class="icon" >
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Magneto_%28Marvel_Comics_character%29.jpg/250px-Magneto_%28Marvel_Comics_character%29.jpg" alt="">
       </div>
-
+      <div class="name-bar">
+        <h1><%= @user.hero_name %></h1>
+        <h2>Alter Ego: <%= @user.alterego %></h2>
+      </div>
+      <div class="bio">
+        <p>Bio: <%= @user.bio %></p>
+      </div>
+      <div class="host">
+        <% if @owner %>
+          <%= link_to "Host a new lair", new_lair_path, class: "btn button blue-button" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="lair-bookings">
+      <% if @owner %>
+        <div class="bookings">
+            <div>
+              <h3> Your bookings </h3>
+              <ul>
+                <% @user.bookings.each do |booking| %>
+                  <div class="card-trip">
+                    <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/The-Fortress-of-Solitude.jpg" />
+                    <div class="card-trip-infos">
+                      <div>
+                        <h2><%= booking.lair.title %></h2>
+                        <p><%= booking.lair.description %></p>
+                      </div>
+                      <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
+                      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                    </div>
+                  </div>
+                <% end %>
+              </ul>
+            </div>
+        </div>
       <% end %>
-    </ul>
+      <div class="lairs">
+        <h3> <%= @user.hero_name %>'s Lairs </h3>
+        <ul>
+          <% @user.lairs.each do |lair| %>
+          <div>
+          </div>
+          <%= link_to lair_path(lair), class: "keine-decoration" do %>
+          <div class="card-product">
+            <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/The-Fortress-of-Solitude.jpg" />
+            <div class="card-product-infos">
+              <h2><%= lair.title %></h2>
+              <p><%= lair.location %></p>
+            </div>
+          </div>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
-
-<% end %>
+</div>

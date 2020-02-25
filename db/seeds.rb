@@ -81,28 +81,28 @@ User.create(email: "loki@asgard.universe",
 Lair.create!(title: "Batcave",
   location: "Gotham city",
   description: "Nice place to meet and sort out plans to save the universe. Comes with a ton of cool tech equipment",
-  price_per_night: 10000,
+  price_per_night: 10,
   is_hero_lair: true,
   user_id: 2)
 # Fortress of Solitude
 Lair.create(title: "Fortress of Solitude",
   location: "Arctic Cricle",
   description: "Pretty large but very lonely fortress made out of ice. Nice if you want to calm down",
-  price_per_night: 3527,
+  price_per_night: 10,
   is_hero_lair: true,
   user_id: 1)
 # Jabba's Palace
 Lair.create(title: "Jabba's Palace",
   location: "Tatooine",
   description: "Great palace in the middle of nowhere. Don't worry, Darth Vader will never come and visit",
-  price_per_night: 108302,
+  price_per_night: 10,
   is_hero_lair: false,
   user_id: 10)
 # Death Star
 Lair.create(title: "Death Star",
   description: "Gigantic moon-like space ship with the power to destroy planets",
   location: "Alderaan's orbit",
-  price_per_night: 9920334,
+  price_per_night: 100,
   is_hero_lair: false,
   user_id: 6)
 

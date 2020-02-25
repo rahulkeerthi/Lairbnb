@@ -6,4 +6,5 @@
 <%= link_to "Edit", edit_lair_path(@lair) %>
 | <%= link_to "Go back", lairs_path %>
 
-<%= render 'booking_form', booking: @booking %>
+<%= render 'shared/booking_form', booking: @booking %>
+<!-- Add JS to the page to dynamically display the total cost -->

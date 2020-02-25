@@ -7,10 +7,15 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.lair = Lair.find(params[:lair_id])
-
-    @booking.save
-    redirect_to user_path(current_user)
+    @lair = Lair.find(params[:lair_id])
+    @booking.lair = @lair
+    @booking.total_cost = (@booking.end_date - @booking.start_date).to_i * @booking.lair.price_per_night
+    # add JS to dynamically display total cost
+    if @booking.save
+      redirect_to user_path(current_user)
+    else
+      render template: "lairs/show"
+    end
   end
 
   def destroy

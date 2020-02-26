@@ -2,7 +2,7 @@
   <div class="content d-flex">
     <div class="character-card">
       <div class="icon" >
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/Magneto_%28Marvel_Comics_character%29.jpg/250px-Magneto_%28Marvel_Comics_character%29.jpg" alt="">
+        <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, gravity: :face %>
       </div>
       <div class="name-bar">
         <h1><%= @user.hero_name %></h1>
@@ -17,29 +17,33 @@
         <% end %>
       </div>
     </div>
-    <div class="lair-bookings">
+
+    <div class="lair-bookings <%= @user.lairs.empty? ? "" : "col-6" %>">
       <% if @owner %>
         <div class="bookings">
             <div>
               <h3> Your bookings </h3>
               <ul>
                 <% @user.bookings.each do |booking| %>
+                <%= link_to lair_path(booking.lair), class: "keine-decoration" do  %>
                   <div class="card-trip">
-                    <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/The-Fortress-of-Solitude.jpg" />
-                    <div class="card-trip-infos">
+                    <%= cl_image_tag booking.lair.photos.first.key, crop: :fill %>
+                  <div class="card-trip-infos">
                       <div>
                         <h2><%= booking.lair.title %></h2>
                         <p><%= booking.lair.description %></p>
                       </div>
                       <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
-                      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                      <%= cl_image_tag booking.lair.user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill, gravity: :face %>
                     </div>
                   </div>
+                <% end %>
                 <% end %>
               </ul>
             </div>
         </div>
       <% end %>
+      <% if !@user.lairs.empty? %>
       <div class="lairs">
         <h3> <%= @user.hero_name %>'s Lairs </h3>
         <ul>
@@ -48,7 +52,7 @@
           </div>
           <%= link_to lair_path(lair), class: "keine-decoration" do %>
           <div class="card-product">
-            <img src="https://static2.srcdn.com/wordpress/wp-content/uploads/The-Fortress-of-Solitude.jpg" />
+            <%= cl_image_tag lair.photos.first.key, height: 250, width: 250, crop: :fill %>
             <div class="card-product-infos">
               <h2><%= lair.title %></h2>
               <p><%= lair.location %></p>
@@ -58,6 +62,7 @@
           <% end %>
         </ul>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -25,7 +25,7 @@
               <h3> Your bookings </h3>
               <ul>
                 <% @user.bookings.each do |booking| %>
-                <%= link_to lair_path(booking.lair), class: "keine-decoration" do  %>
+                <%= link_to lair_path(booking.lair), class: "no-decoration" do  %>
                   <div class="card-trip">
                     <%= cl_image_tag booking.lair.photos.first.key, crop: :fill %>
                   <div class="card-trip-infos">
@@ -50,7 +50,7 @@
           <% @user.lairs.each do |lair| %>
           <div>
           </div>
-          <%= link_to lair_path(lair), class: "keine-decoration" do %>
+          <%= link_to lair_path(lair), class: "no-decoration" do %>
           <div class="card-product">
             <%= cl_image_tag lair.photos.first.key, height: 250, width: 250, crop: :fill %>
             <div class="card-product-infos">

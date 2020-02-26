@@ -38,8 +38,8 @@ const updateForm = (event) => {
 };
 
 const updateFormOnChange = (dropdown) => {
-  dropdown.addEventListener('onchange', updateForm);
+  dropdown.addEventListener('click', updateForm);
 };
 
-const dropdowns = document.querySelectorAll('select');
+const dropdowns = document.querySelectorAll('.dropdown');
 dropdowns.forEach(updateFormOnChange);

@@ -1,0 +1,37 @@
+.title {
+  display: inline-block;
+  position: absolute;
+  left: -40px;
+  top: -50px;
+  z-index: 10;
+}
+
+.carousel-inner {
+  max-height:600px;
+}
+
+.carousel {
+  border: 5px solid black;
+  margin-bottom: 48px;
+}
+
+.lair-show-description {
+  padding-left: 50px;
+  margin: 0;
+}
+
+.host {
+  display: inline-block;
+  position: absolute;
+  right: -30px;
+  top: -40px;
+  z-index: 10;
+  img {
+    border-radius: 50%;
+    border: 3px solid black;
+  }
+}
+
+.relative {
+  position: relative;
+}

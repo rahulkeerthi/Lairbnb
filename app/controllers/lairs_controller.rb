@@ -10,6 +10,8 @@ class LairsController < ApplicationController
     @user = @lair.user
     @owner = @user == current_user ? true : false
     @booking = Booking.new
+    @user_bookings = []
+    @user_bookings = find_user_bookings
   end
 
   def new
@@ -50,5 +52,13 @@ class LairsController < ApplicationController
 
   def set_lair
     @lair = Lair.find(params[:id])
+  end
+
+  def find_user_bookings
+    bookings = []
+    current_user.bookings.each do |booking|
+      bookings << booking if booking == Booking.find(params[:id])
+    end
+    bookings
   end
 end

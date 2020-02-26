@@ -13,7 +13,11 @@ const stayLengthCalc = () => {
 
 const updateCounter = (counter, count) => {
   counter.dataset.count = count;
-  counter.innerText = `${count} days`;
+  if (count > 1) {
+    counter.innerText = `${count} days`;
+  } else {
+    counter.innerText = `${count} day`;
+  }
 };
 
 const updateButton = (priceDollars) => {

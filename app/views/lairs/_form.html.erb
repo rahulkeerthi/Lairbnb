@@ -1,11 +1,13 @@
-<%= simple_form_for(@lair) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :location %>
-  <%= f.input :description, hint: 'Keep it short please!' %>
-  <%= f.input :price_per_night, label: 'How much per night?' %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true }, class: "btn button blue-button" %>
+<div class="box">
+  <%= simple_form_for(@lair) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :location %>
+    <%= f.input :description, hint: 'Keep it short please!' %>
+    <%= f.input :price_per_night, label: 'How much per night?' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, class: "btn button blue-button" %>
 
-  <%= f.submit "Start hosting", class: "btn button blue-button" %>
-  <%= link_to "Go back", lairs_path, class: "btn button red-button" %>
+    <%= f.submit "Start hosting", class: "btn button blue-button" %>
+    <%= link_to "Go back", lairs_path, class: "btn button red-button" %>
 
-<% end %>
+  <% end %>
+</div>

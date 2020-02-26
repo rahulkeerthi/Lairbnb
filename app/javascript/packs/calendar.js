@@ -13,12 +13,17 @@ const stayLengthCalc = () => {
 
 const updateCounter = (counter, count) => {
   counter.dataset.count = count;
-  counter.innerText = `${count} days`;
+  if (count > 1) {
+    counter.innerText = `${count} days`;
+  } else {
+    counter.innerText = `${count} day`;
+  }
 };
 
 const updateButton = (priceDollars) => {
   const button = document.getElementById('paybutton');
-  button.value = `Pay $${priceDollars}`;
+  button.disabled = false;
+  button.value = `PAY $${priceDollars}`;
 };
 
 const updateForm = (event) => {
@@ -33,12 +38,17 @@ const updateForm = (event) => {
     updateCounter(counter, count);
     updateButton(priceDollars);
   } else {
+    counter.dataset.count = 0;
+    counter.innerText = `Set a valid date combo!`;
+    const button = document.getElementById('paybutton')
+    button.value = "KAPOW!";
+    button.disabled = true;
     event.preventDefault();
   }
 };
 
 const updateFormOnChange = (dropdown) => {
-  dropdown.addEventListener('click', updateForm);
+  dropdown.addEventListener('change', updateForm);
 };
 
 const dropdowns = document.querySelectorAll('.dropdown');

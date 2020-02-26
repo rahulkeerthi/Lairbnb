@@ -38,7 +38,7 @@
 
       <div class="lair-info mx-3 mb-5 relative">
         <div class="lair-info title">
-          <h3>$<%= @lair.price_per_night %></h3>
+          <h3 id="dayrate" data-price="<%= @lair.price_per_night.to_i %>">$<%= @lair.price_per_night %></h3>
         </div>
         <h4 class="lair-show-description mb-3"><%= @lair.title %></h4>
         <p class="lair-show-description"><%= @lair.description %></p>
@@ -73,6 +73,3 @@
   </div>
 
 </div>
-
-
-

@@ -3,8 +3,12 @@
 
 @font-face {
     font-family: 'Komika Hand';
-    src: url('fonts/Komika_Hand-webfont.woff') format('woff'),
-        url('fonts/Komika_Hand.ttf') format('truetype');
+    src: url('komika_hand-webfont.eot');
+    src: url('komika_hand-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Komika_Hand-webfont.woff') format('woff'),
+         url('fonts/Komika_Hand.ttf') format('truetype'),
+         url('komika_hand-webfont.woff2') format('woff2'),
+         url('komika_hand-webfont.svg#komika_handregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }

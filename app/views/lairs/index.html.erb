@@ -26,7 +26,7 @@
             </div>
 
             <div class="lair-price flex-grow-1 text-center">
-              <h4 class="lair-cost">$200</h4>
+              <h4 class="lair-cost">$<%= lair.price_per_night %></h4>
               <h4>per night</h4>
               <%= link_to lair_path(lair) do %>
                 <button class="btn button blue-button">Book</button>

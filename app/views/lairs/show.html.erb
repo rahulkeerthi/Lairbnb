@@ -1,5 +1,5 @@
 <h1><%= @lair.title %> | <%= @lair.location %></h2>
-<h2>$<%= @lair.price_per_night %></h2>
+<h2 id="dayrate" data-price="<%= @lair.price_per_night.to_i %>">$<%= @lair.price_per_night %></h2>
 <p>Hosted by <%= link_to @lair.user.hero_name, user_path(@lair.user) %></p>
 <p><%= @lair.description %></p>
 
@@ -14,7 +14,9 @@
   <%= link_to "Edit", edit_lair_path(@lair) %> |
   <%= link_to "Delete", lair_path(@lair), method: :delete %> |
 <% else %>
-  <%= render 'shared/booking_form', booking: @booking %>
+  <div><%= render 'shared/booking_form', booking: @booking %></div>
 <% end %>
 
 <%= link_to "Go back", lairs_path %>
+
+<!-- <script src="../javascript/calendar.js" async></script> -->

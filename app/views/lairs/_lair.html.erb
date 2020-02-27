@@ -1,0 +1,24 @@
+<% lairs.each do |lair| %>
+  <div class="col-sm-12 col-md-6 d-flex justify-content-stretch">
+    <div class="lair-card">
+      <div class="lair-image">
+        <img src="https://images.unsplash.com/photo-1513384312027-9fa69a360337" alt="superman">
+      </div>
+
+      <div class="d-flex justify-content-stretch lair-content">
+        <div class="lair-info flex-grow-1">
+          <h4 class="lair-title"> <%= lair.title %></h4>
+          <p class="lair-bio"><%= lair.description %></p>
+        </div>
+
+        <div class="lair-price flex-grow-1 text-center">
+          <h4 class="lair-cost">$200</h4>
+          <h4>per night</h4>
+          <%= link_to lair_path(lair) do %>
+            <button class="btn button blue-button">Book</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

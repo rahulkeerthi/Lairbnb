@@ -2,7 +2,17 @@ class LairsController < ApplicationController
   before_action :set_lair, only: [:show, :edit, :update, :destroy, :find_user_bookings]
 
   def index
-    @lairs = Lair.all
+    @found = true
+
+    if params[:query].blank?
+      @lairs = Lair.all
+    else
+      @lairs = Lair.search_by_title_and_location(params[:query])
+      if @lairs.empty?
+        @found = false
+        @lairs = Lair.all
+      end
+    end
   end
 
   def show

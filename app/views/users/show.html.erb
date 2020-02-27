@@ -19,7 +19,7 @@
     </div>
 
     <div class="lair-bookings <%= @user.lairs.empty? ? "" : "col-6" %>">
-      <% if @owner %>
+      <% if @owner && !@user.bookings.empty? %>
         <div class="bookings">
             <div>
               <h3> Your bookings </h3>

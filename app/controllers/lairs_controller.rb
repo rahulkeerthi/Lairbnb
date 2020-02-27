@@ -1,5 +1,5 @@
 class LairsController < ApplicationController
-  before_action :set_lair, only: [:show, :edit, :update, :destroy]
+  before_action :set_lair, only: [:show, :edit, :update, :destroy, :find_user_bookings]
 
   def index
     @lairs = Lair.all
@@ -10,7 +10,6 @@ class LairsController < ApplicationController
     @user = @lair.user
     @owner = @user == current_user ? true : false
     @booking = Booking.new
-    @user_bookings = []
     @user_bookings = find_user_bookings
   end
 
@@ -57,7 +56,7 @@ class LairsController < ApplicationController
   def find_user_bookings
     bookings = []
     current_user.bookings.each do |booking|
-      bookings << booking if booking == Booking.find(params[:id])
+      bookings << booking if booking.lair == @lair
     end
     bookings
   end

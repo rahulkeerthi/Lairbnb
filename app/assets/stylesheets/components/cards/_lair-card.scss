@@ -13,10 +13,6 @@
   margin-bottom: 24px;
 }
 
-.card-product img {
-  object-fit: cover;
-}
-
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
@@ -42,4 +38,19 @@
   &:hover {
     transform: scale(1.02);
   }
+}
+
+.lair-image {
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.lair-content {
+  width: 500px;
+  height: 200px;
 }

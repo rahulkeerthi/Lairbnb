@@ -2,7 +2,17 @@ class LairsController < ApplicationController
   before_action :set_lair, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lairs = Lair.all
+    @found = true
+
+    if params[:query].blank?
+      @lairs = Lair.all
+    else
+      @lairs = Lair.search_by_title_and_location(params[:query])
+      if @lairs.empty?
+        @found = false
+        @lairs = Lair.all
+      end
+    end
   end
 
   def show
@@ -42,17 +52,6 @@ class LairsController < ApplicationController
   def destroy
     @lair.destroy
     redirect_to user_path(current_user)
-  end
-
-  def search
-    if params[:search].empty?
-      @lairs = Lair.all
-    else
-      lairs = Lair.arel_table
-      lairs_by_title = Lair.where(lairs[:title].matches("%#{params[:search]}%"))
-      lairs_by_location = Lair.where(lairs[:location].matches("%#{params[:search]}%"))
-      @lairs = (lairs_by_title | lairs_by_location) - (lairs_by_title & lairs_by_location)
-    end
   end
 
   private

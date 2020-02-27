@@ -1,1 +1,52 @@
-<%= render 'index', lairs: @lairs %>
+<div class="header">
+  <%= link_to root_path, class: "header-links" do %>
+    <button class="btn button red-button">Go Back</button>
+  <% end %>
+  <h1>Find a new HQ</h1>
+  <%= link_to new_lair_path, class: "header-links" do %>
+    <button class="btn button blue-button">Create a Lair</button>
+  <% end %>
+</div>
+<hr>
+<div class="container">
+
+  <div class="search-bar">
+    <%= form_tag lairs_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a lair"
+      %>
+    <% end %>
+  </div>
+  <!-- display message if result of search was empty -->
+  <% unless @found %>
+    <p>No lairs meet your search criteria :(</p>
+  <% end %>
+  <div class="row">
+    <% @lairs.each do |lair| %>
+      <div class="col-sm-12 col-md-6 d-flex justify-content-stretch">
+        <div class="lair-card">
+          <div class="lair-image">
+            <%= cl_image_tag lair.photos.first.key, crop: :fill  %>
+          </div>
+
+          <div class="d-flex justify-content-stretch lair-content">
+            <div class="lair-info flex-grow-1">
+              <h4 class="lair-title"> <%= lair.title %></h4>
+              <p class="lair-bio"><%= lair.description %></p>
+            </div>
+
+            <div class="lair-price flex-grow-1 text-center">
+              <h4 class="lair-cost">$<%= lair.price_per_night %></h4>
+              <h4>per night</h4>
+              <%= link_to lair_path(lair) do %>
+                <button class="btn button blue-button">Book</button>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

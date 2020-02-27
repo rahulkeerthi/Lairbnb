@@ -22,22 +22,68 @@
       <% if @owner %>
         <div class="bookings">
             <div>
-              <h3> Your bookings </h3>
+              <h3> Your upcoming bookings </h3>
               <ul>
-                <% @user.bookings.each do |booking| %>
-                <%= link_to lair_path(booking.lair), class: "no-decoration" do  %>
-                  <div class="card-trip">
-                    <%= cl_image_tag booking.lair.photos.first.key, crop: :fill %>
-                  <div class="card-trip-infos">
-                      <div>
-                        <h2><%= booking.lair.title %></h2>
-                        <p>From: <%= booking.start_date %>, To: <%= booking.end_date %> </p>
+                <% @user.bookings.order(start_date: :asc).each do |booking| %>
+                  <!-- Button -->
+                  <div class="no-decoration" data-toggle="modal" data-target="#booking<%= booking.id %>">
+                    <div class="card-trip">
+                      <%= cl_image_tag booking.lair.photos.first.key, crop: :fill %>
+                    <div class="card-trip-infos">
+                        <div>
+                          <h2><%= booking.lair.title %></h2>
+                          <p><%= booking.lair.description %></p>
+                          <p><%= booking.start_date %></p>
+                        </div>
+                        <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
+                        <%= cl_image_tag booking.lair.user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill, gravity: :face %>
                       </div>
-                      <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
-                      <%= cl_image_tag booking.lair.user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill, gravity: :face %>
                     </div>
                   </div>
-                <% end %>
+                  <!-- Modal -->
+                  <div class="modal fade" id="booking<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content user-booking">
+                        <div class="modal-header button yellow-button mb-1">
+                          <h2 class="modal-title" id="exampleModalLongTitle">Your stay at <%= booking.lair.user.hero_name %>'s <%= booking.lair.title %></h2>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">X</span>
+                          </button>
+                        </div>
+                          <div class="lair-info">
+                            <h3 class="text-center m-0"><%= booking.lair.location %></h3>
+                          </div>
+                        <div class="modal-body p-0">
+                          <div class="d-flex justify-content-stretch">
+                            <div class="lair-info">
+                              <h3 class="lair-title text-center"> Dates</h3>
+                              <div class="d-flex align-items-center mx-auto">
+                                <div class="modal-date">
+                                  <h3><%= booking.start_date.strftime("%-d %b") %></h3>
+                                  <h3><%= booking.start_date.strftime("%Y") %></h3>
+                                </div>
+                                <div class="date-separator">
+
+                                </div>
+                                <div class="modal-date">
+                                  <h3><%= booking.end_date.strftime("%-d %b") %></h3>
+                                  <h3><%= booking.end_date.strftime("%Y") %></h3>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="lair-price flex-grow-1 text-center d-flex flex-column justify-content-center">
+                              <h4>Total Cost</h4>
+                              <h4 class="lair-cost">$<%= booking.total_cost %></h4>
+                            </div>
+                          </div>
+                        </div>
+                          <%= link_to lair_path(booking.lair) do %>
+                          <div class="button blue-button text-center"><h2>View Lair</h2></div>
+                          <% end %>
+                      </div>
+                    </div>
+                  </div>
+
                 <% end %>
               </ul>
             </div>

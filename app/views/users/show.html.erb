@@ -43,7 +43,7 @@
                   <!-- Modal -->
                   <div class="modal fade" id="booking<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="model-content user-booking">
+                      <div class="modal-content user-booking">
                         <div class="modal-header button yellow-button mb-1">
                           <h2 class="modal-title" id="exampleModalLongTitle">Your stay at <%= booking.lair.user.hero_name %>'s <%= booking.lair.title %></h2>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -53,8 +53,8 @@
                           <div class="lair-info">
                             <h3 class="text-center m-0"><%= booking.lair.location %></h3>
                           </div>
-                        <div class="model-body">
-                          <div class="d-flex justify-content-stretch lair-content">
+                        <div class="modal-body p-0">
+                          <div class="d-flex justify-content-stretch">
                             <div class="lair-info">
                               <h3 class="lair-title text-center"> Dates</h3>
                               <div class="d-flex align-items-center mx-auto">
@@ -77,12 +77,13 @@
                             </div>
                           </div>
                         </div>
-                        <div class="lair-info">
-                          <%= link_to "View lair", lair_path(booking.lair), class: "btn button blue-button"  %>
-                        </div>
+                          <%= link_to lair_path(booking.lair) do %>
+                          <div class="button blue-button text-center"><h2>View Lair</h2></div>
+                          <% end %>
                       </div>
                     </div>
                   </div>
+
                 <% end %>
               </ul>
             </div>

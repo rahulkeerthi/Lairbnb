@@ -9,19 +9,20 @@
 </div>
 <hr>
 <div class="container">
-
-  <div class="search-bar">
-    <%= form_tag lairs_path, method: :get, class: "form-inline" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a lair"
-      %>
-    <% end %>
+  <div class="form-inline">
+    <div class="form-group">
+      <%= form_tag lairs_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control button",
+          placeholder: "Find a lair..." %>
+        <%= submit_tag "Search!", class: "btn button blue-button" %>
+      <% end %>
+    </div>
   </div>
   <!-- display message if result of search was empty -->
   <% unless @found %>
-    <p>No lairs meet your search criteria :(</p>
+    <div class="text-center alert alert-danger">No lairs meet your search criteria :(</div>
   <% end %>
   <div class="row">
     <% @lairs.each do |lair| %>
@@ -40,7 +41,7 @@
 
             <div class="lair-price flex-grow-1 text-center">
               <h4 class="lair-cost">$<%= lair.price_per_night %></h4>
-              <h4>per night</h4>
+              <h3>per night</h3>
             </div>
           </div>
         </div>

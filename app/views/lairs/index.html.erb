@@ -27,15 +27,25 @@
     <% @lairs.each do |lair| %>
       <div class="col-sm-12 col-md-6 d-flex justify-content-stretch">
 
-        <!--Only apply link to if matching user with lair owner-->
-        <% if @is_hero == lair.user.is_hero %>
+        <!--Only apply link to if matching user with lair owner
+            Need to check whether user signed in as well, otherwise breaks
+            since we cannot check current_user.is_hero -->
+        <% if user_signed_in? %>
+          <% if current_user.is_hero == lair.user.is_hero %>
 
+            <%= link_to lair_path(lair) do %>
+              <%= render "lair_card", { lair: lair, add_class: "" } %>
+            <% end %>
+
+          <% else %>
+              <%= render "lair_card", { lair: lair, add_class: "lair-card-disabled"} %>
+
+          <% end %>
+        <!-- if user not signed in, display all cards, no additional style-->
+        <% else %>
           <%= link_to lair_path(lair) do %>
             <%= render "lair_card", { lair: lair, add_class: "" } %>
           <% end %>
-
-        <% else %>
-            <%= render "lair_card", { lair: lair, add_class: "lair-card-disabled"} %>
 
         <% end %>
 

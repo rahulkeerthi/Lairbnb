@@ -19,13 +19,9 @@ class LairsController < ApplicationController
   def show
     # boolean @owner to know whether the current user is the owner of the lair
     @user = @lair.user
-    @owner = @user == current_user ? true : false
+    @owner = @user == current_user
     @booking = Booking.new
-    if user_signed_in?
-      @user_bookings = find_user_bookings
-    else
-      @user_bookings = []
-    end
+    @user_bookings = user_signed_in? ? find_user_bookings : []
   end
 
   def new

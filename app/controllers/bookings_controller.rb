@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :destroy]
+  before_action :set_booking, only: [:destroy]
   before_action :authenticate_user!, only: :create
 
-  def show
-  end
+  # def show
+  # end
 
   def create
     @booking = Booking.new(booking_params)
@@ -11,16 +11,17 @@ class BookingsController < ApplicationController
     @lair = Lair.find(params[:lair_id])
     @booking.lair = @lair
     @booking.total_cost = (@booking.end_date - @booking.start_date).to_i * @booking.lair.price_per_night
-    # add JS to dynamically display total cost
+    @user_bookings = current_user.bookings
     if @booking.save
       redirect_to user_path(current_user)
     else
-      render template: "lairs/show"
+      render "lairs/show"
     end
   end
 
   def destroy
     @booking.destroy
+    redirect_to user_path(current_user)
   end
 
   private

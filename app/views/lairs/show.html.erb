@@ -62,26 +62,24 @@
     <!-- Add JS to the page to dynamically display the total cost -->
 
     <div class="col-6">
-
-    <% if !@user_bookings.empty? %>
-      <div class="bookings p-3 lair-info">
-        <h4>Your bookings</h4>
-
-          <ol class="p-3">
-            <% @user_bookings.each do |booking| %>
-              <li>
-                From: <%= booking.start_date %>, To: <%= booking.end_date %>. Total cost: <%= booking.total_cost %>
-              </li>
-            <% end %>
-          </ol>
-      </div>
+      <% unless @user_bookings.empty? %>
+        <div class="bookings p-3 lair-info">
+          <h4>Your bookings</h4>
+            <ol class="p-3">
+              <% @user_bookings.each do |booking| %>
+                <li>
+                  From: <%= booking.start_date %>, To: <%= booking.end_date %>. Total cost: <%= booking.total_cost %>
+                </li>
+              <% end %>
+            </ol>
+        </div>
       <% end %>
-        <% if !@owner %>
-          <div class="lair-info">
-            <h4>Book this place</h4>
-            <%= render 'shared/booking_form', booking: @booking %>
-          </div>
-        <% end %>
+      <% unless @owner %>
+        <div class="lair-info">
+          <h4>Book this place</h4>
+          <%= render 'shared/booking_form', booking: @booking %>
+        </div>
+      <% end %>
     </div>
 
   </div>

@@ -22,9 +22,9 @@
       <% if @owner %>
         <div class="bookings">
             <div>
-              <h3> Your bookings </h3>
+              <h3> Your upcoming bookings </h3>
               <ul>
-                <% @user.bookings.each do |booking| %>
+                <% @user.bookings.order(start_date: :asc).each do |booking| %>
                 <%= link_to lair_path(booking.lair), class: "no-decoration" do  %>
                   <div class="card-trip">
                     <%= cl_image_tag booking.lair.photos.first.key, crop: :fill %>
@@ -32,6 +32,7 @@
                       <div>
                         <h2><%= booking.lair.title %></h2>
                         <p><%= booking.lair.description %></p>
+                        <p><%= booking.start_date %></p>
                       </div>
                       <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
                       <%= cl_image_tag booking.lair.user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill, gravity: :face %>

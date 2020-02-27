@@ -44,13 +44,15 @@
 }
 
 .lair-card-disabled {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter: gray;
   opacity: 0.8;
+  .lair-image, .card-description {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+  }
   .lair-card-disabled-button {
     z-index: 1;
     position: absolute;

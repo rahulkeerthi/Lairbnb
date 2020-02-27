@@ -1,18 +1,21 @@
 <div class="lair-card <%= add_class %>">
+  <div class="button yellow-button lair-card-disabled-button">NOT AVAILABLE TO YOU</div>
   <div class="lair-image">
     <%= cl_image_tag lair.photos.first.key, crop: :fill  %>
-    <div class="button yellow-button lair-card-disabled-button">NOT AVAILABLE TO YOU</div>
   </div>
 
-  <div class="d-flex justify-content-stretch lair-content">
-    <div class="lair-info flex-grow-1">
-      <h4 class="lair-title"> <%= lair.title %></h4>
-      <p class="lair-bio"><%= lair.description %></p>
-    </div>
+  <div class="card-description">
+    <div class="d-flex justify-content-stretch lair-content">
+      <div class="lair-info flex-grow-1">
+        <h4 class="lair-title"> <%= lair.title %></h4>
+        <p class="lair-bio"><%= lair.description %></p>
+      </div>
 
-    <div class="lair-price flex-grow-1 text-center">
-      <h4 class="lair-cost">$<%= lair.price_per_night %></h4>
-      <h4>per night</h4>
+      <div class="lair-price flex-grow-1 text-center">
+        <h4 class="lair-cost">$<%= lair.price_per_night %></h4>
+        <h4>per night</h4>
+      </div>
     </div>
   </div>
+
 </div>

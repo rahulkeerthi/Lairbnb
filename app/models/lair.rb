@@ -8,4 +8,5 @@ class Lair < ApplicationRecord
   validates :price_per_night, presence: true, numericality: { greater_than: 0 }
   validates :is_hero_lair, inclusion: { in: [true, false] }
   validates :user_id, presence: true
+  validates :photos, presence: true
 end

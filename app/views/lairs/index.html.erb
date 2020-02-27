@@ -4,7 +4,7 @@
     <%= link_to root_path, class: "header-links" do %>
       <button class="btn button red-button">Go Back</button>
     <% end %>
-      <h1>Find a new HQ</h1>
+      <h1 class="button yellow-button">Find a new HQ</h1>
     <%= link_to new_lair_path, class: "header-links" do %>
       <button class="btn button blue-button">Create a Lair</button>
     <% end %>
@@ -14,6 +14,7 @@
   <div class="row">
     <% @lairs.each do |lair| %>
       <div class="col-sm-12 col-md-6 d-flex justify-content-stretch">
+      <%= link_to lair_path(lair) do %>
         <div class="lair-card">
           <div class="lair-image">
             <%= cl_image_tag lair.photos.first.key, crop: :fill  %>
@@ -28,12 +29,10 @@
             <div class="lair-price flex-grow-1 text-center">
               <h4 class="lair-cost">$<%= lair.price_per_night %></h4>
               <h4>per night</h4>
-              <%= link_to lair_path(lair) do %>
-                <button class="btn button blue-button">Book</button>
-              <% end %>
             </div>
           </div>
         </div>
+      <% end %>
       </div>
     <% end %>
   </div>

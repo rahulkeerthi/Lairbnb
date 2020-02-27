@@ -51,5 +51,10 @@ const updateFormOnChange = (dropdown) => {
   dropdown.addEventListener('change', updateForm);
 };
 
-const dropdowns = document.querySelectorAll('.dropdown');
-dropdowns.forEach(updateFormOnChange);
+
+const setListener = () => {
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(updateFormOnChange);
+};
+
+document.addEventListener('turbolinks:load', setListener);

@@ -44,6 +44,17 @@ class LairsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def search
+    if params[:search].empty?
+      @lairs = Lair.all
+    else
+      lairs = Lair.arel_table
+      lairs_by_title = Lair.where(lairs[:title].matches("%#{params[:search]}%"))
+      lairs_by_location = Lair.where(lairs[:location].matches("%#{params[:search]}%"))
+      @lairs = (lairs_by_title | lairs_by_location) - (lairs_by_title & lairs_by_location)
+    end
+  end
+
   private
 
   def lair_params

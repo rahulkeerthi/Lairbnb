@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   validates :hero_name, presence: true, uniqueness: true
   validates :alterego, presence: true
-  validates :is_hero, inclusion: { in: [true, false] }
   validates :email, presence: true, uniqueness: true
+  validates :photo, presence: true
 end

@@ -3,7 +3,8 @@ class LairsController < ApplicationController
 
   def index
     @found = true
-
+    # boolean to check if current user is hero or not
+    @is_hero = current_user.is_hero
     if params[:query].blank?
       @lairs = Lair.all
     else

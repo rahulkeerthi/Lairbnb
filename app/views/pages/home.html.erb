@@ -1,7 +1,7 @@
 <div class="banner">
   <div class="container">
     <h1>Look over there! <br>It’s your next lair!</h1>
-    <div class="search-bar">
+    <div class="search-bar ford-flex">
       <%= form_tag lairs_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],

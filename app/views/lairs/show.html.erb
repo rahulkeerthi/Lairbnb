@@ -70,8 +70,8 @@
       <% end %>
         <div class="lair-info">
           <% if @owner %>
-            <%= link_to "Edit", edit_lair_path(@lair) %> |
-            <%= link_to "Delete", lair_path(@lair), method: :delete %> |
+            <%= link_to "Edit", edit_lair_path(@lair), class: "btn button blue-button" %>
+            <%= link_to "Delete", lair_path(@lair), method: :delete, class: "btn button red-button" %>
           <% else %>
             <h4>Book this place</h4>
             <%= render 'shared/booking_form', booking: @booking %>

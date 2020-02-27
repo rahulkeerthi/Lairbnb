@@ -4,14 +4,14 @@
       <div class="icon" >
         <%= cl_image_tag @user.photo.key, height: 250, width: 250, crop: :fill, gravity: :face %>
       </div>
-      <div class="name-bar button yellow-button">
+      <div class="name-bar button yellow-button my-3">
         <h1><%= @user.hero_name %></h1>
         <h2>Alter Ego: <%= @user.alterego %></h2>
       </div>
       <div class="bio">
         <p>Bio: <%= @user.bio %></p>
       </div>
-      <div class="host">
+      <div class="new-host">
         <% if @owner %>
           <%= link_to "Host a new lair", new_lair_path, class: "btn button blue-button" %>
         <% end %>
@@ -31,7 +31,7 @@
                   <div class="card-trip-infos">
                       <div>
                         <h2><%= booking.lair.title %></h2>
-                        <p><%= booking.lair.description %></p>
+                        <p>From: <%= booking.start_date %>, To: <%= booking.end_date %> </p>
                       </div>
                       <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
                       <%= cl_image_tag booking.lair.user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill, gravity: :face %>

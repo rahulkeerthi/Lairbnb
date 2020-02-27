@@ -5,18 +5,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  transition: 0.5s;
   border: 3px solid black;
+  transition: 0.5s;
   &:hover {
     transform: scale(1.02);
   }
   margin-bottom: 24px;
-}
-
-.card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
 }
 
 .card-product h2 {
@@ -37,5 +31,26 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
 
+.lair-card {
+  transition: 0.5s;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.lair-image {
+  width: 500px;
+  height: 300px;
+  overflow: hidden;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.lair-content {
+  width: 500px;
+  height: 200px;
 }

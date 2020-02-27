@@ -3,7 +3,7 @@ class Lair < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many_attached :photos
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { in: 0..40 }
   validates :location, presence: true
   validates :price_per_night, presence: true, numericality: { greater_than: 0 }
   validates :is_hero_lair, inclusion: { in: [true, false] }

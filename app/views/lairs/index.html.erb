@@ -10,16 +10,6 @@
 <hr>
 <div class="container">
 
-<<<<<<< HEAD
-
-  <div class="header">
-    <%= link_to root_path, class: "header-links" do %>
-      <button class="btn button red-button">Go Back</button>
-    <% end %>
-      <h1 class="button yellow-button">Find a new HQ</h1>
-    <%= link_to new_lair_path, class: "header-links" do %>
-      <button class="btn button blue-button">Create a Lair</button>
-=======
   <div class="search-bar">
     <%= form_tag lairs_path, method: :get, class: "form-inline" do %>
       <%= text_field_tag :query,
@@ -27,7 +17,6 @@
         class: "form-control",
         placeholder: "Find a lair"
       %>
->>>>>>> master
     <% end %>
   </div>
   <!-- display message if result of search was empty -->

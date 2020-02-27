@@ -7,9 +7,15 @@
     <button class="btn button blue-button">Create a Lair</button>
   <#% end %> -->
 </div>
-<div class="container">
+<div class="container w-75">
   <div id="carouselExampleControls" class="carousel slide relative" data-ride="carousel">
     <div class="title button yellow-button"><h1><%= @lair.title %></h1><h3><%= @lair.location %></h3></div>
+    <% if @owner %>
+      <div class="edit-title">
+        <%= link_to "Edit", edit_lair_path(@lair), class: "btn button blue-button" %>
+        <%= link_to "Delete", lair_path(@lair), method: :delete, class: "btn button red-button" %>
+      </div>
+    <% end %>
     <div class="carousel-inner">
       <div class="carousel-item active">
         <%= cl_image_tag @lair.photos[0].key, crop: :fill, class: "d-block w-100" %>
@@ -32,7 +38,7 @@
   </div>
 
   <div class="row">
-    <div class="col-6">
+    <div class="<%= @owner ? "col-12" : "col-6" %>">
       <div class="lair-info mx-3 mb-5 relative">
         <div class="lair-info title">
           <h3 id="dayrate" data-price="<%= @lair.price_per_night.to_i %>">$<%= @lair.price_per_night %></h3>
@@ -49,7 +55,7 @@
           <% end %>
         </div>
 
-        <h4>About <%= @lair.user.hero_name %></h4>
+        <h4>About <%= link_to @lair.user.hero_name, user_path(@lair.user), class: "text-primary" %></h4>
         <p><%= @lair.user.bio %></p>
       </div>
     </div>
@@ -58,7 +64,7 @@
     <div class="col-6">
     <% if !@user_bookings.empty? %>
       <div class="bookings p-3 lair-info">
-        <h4>Your bookings</h1>
+        <h4>Your bookings</h4>
           <ol class="p-3">
             <% @user_bookings.each do |booking| %>
               <li>
@@ -68,15 +74,12 @@
           </ol>
       </div>
       <% end %>
-        <div class="lair-info">
-          <% if @owner %>
-            <%= link_to "Edit", edit_lair_path(@lair), class: "btn button blue-button" %>
-            <%= link_to "Delete", lair_path(@lair), method: :delete, class: "btn button red-button" %>
-          <% else %>
+        <% if !@owner %>
+          <div class="lair-info">
             <h4>Book this place</h4>
             <%= render 'shared/booking_form', booking: @booking %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
     </div>
 
   </div>

@@ -33,7 +33,6 @@
 
   <div class="row">
     <div class="col-6">
-
       <div class="lair-info mx-3 mb-5 relative">
         <div class="lair-info title">
           <h3 id="dayrate" data-price="<%= @lair.price_per_night.to_i %>">$<%= @lair.price_per_night %></h3>
@@ -57,10 +56,22 @@
     <!-- Add JS to the page to dynamically display the total cost -->
 
     <div class="col-6">
+    <% if !@user_bookings.empty? %>
+      <div class="bookings p-3 lair-info">
+        <h4>Your bookings</h1>
+          <ol class="p-3">
+            <% @user_bookings.each do |booking| %>
+              <li>
+                From: <%= booking.start_date %>, To: <%= booking.end_date %>. Total cost: <%= booking.total_cost %>
+              </li>
+            <% end %>
+          </ol>
+      </div>
+      <% end %>
         <div class="lair-info">
           <% if @owner %>
-            <%= link_to "Edit", edit_lair_path(@lair) %> |
-            <%= link_to "Delete", lair_path(@lair), method: :delete %> |
+            <%= link_to "Edit", edit_lair_path(@lair), class: "btn button blue-button" %>
+            <%= link_to "Delete", lair_path(@lair), method: :delete, class: "btn button red-button" %>
           <% else %>
             <h4>Book this place</h4>
             <%= render 'shared/booking_form', booking: @booking %>

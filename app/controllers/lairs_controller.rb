@@ -1,8 +1,18 @@
 class LairsController < ApplicationController
-  before_action :set_lair, only: [:show, :edit, :update, :destroy]
+  before_action :set_lair, only: [:show, :edit, :update, :destroy, :find_user_bookings]
 
   def index
-    @lairs = Lair.all
+    @found = true
+
+    if params[:query].blank?
+      @lairs = Lair.all
+    else
+      @lairs = Lair.search_by_title_and_location(params[:query])
+      if @lairs.empty?
+        @found = false
+        @lairs = Lair.all
+      end
+    end
   end
 
   def show
@@ -10,6 +20,7 @@ class LairsController < ApplicationController
     @user = @lair.user
     @owner = @user == current_user ? true : false
     @booking = Booking.new
+    @user_bookings = find_user_bookings
   end
 
   def new
@@ -42,17 +53,6 @@ class LairsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def search
-    if params[:search].empty?
-      @lairs = Lair.all
-    else
-      lairs = Lair.arel_table
-      lairs_by_title = Lair.where(lairs[:title].matches("%#{params[:search]}%"))
-      lairs_by_location = Lair.where(lairs[:location].matches("%#{params[:search]}%"))
-      @lairs = (lairs_by_title | lairs_by_location) - (lairs_by_title & lairs_by_location)
-    end
-  end
-
   private
 
   def lair_params
@@ -61,5 +61,13 @@ class LairsController < ApplicationController
 
   def set_lair
     @lair = Lair.find(params[:id])
+  end
+
+  def find_user_bookings
+    bookings = []
+    current_user.bookings.each do |booking|
+      bookings << booking if booking.lair == @lair
+    end
+    bookings
   end
 end

@@ -1,9 +1,10 @@
 class LairsController < ApplicationController
   before_action :set_lair, only: [:show, :edit, :update, :destroy, :find_user_bookings]
+  before_action :authenticate_user!, only: [ :new ]
 
   def index
     @found = true
-
+    # boolean to check if current user is hero or not
     if params[:query].blank?
       @lairs = Lair.all
     else
@@ -20,7 +21,11 @@ class LairsController < ApplicationController
     @user = @lair.user
     @owner = @user == current_user ? true : false
     @booking = Booking.new
-    @user_bookings = find_user_bookings
+    if user_signed_in?
+      @user_bookings = find_user_bookings
+    else
+      @user_bookings = []
+    end
   end
 
   def new

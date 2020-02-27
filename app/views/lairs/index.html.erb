@@ -25,18 +25,27 @@
   <div class="row">
     <% @lairs.each do |lair| %>
       <div class="col-sm-12 col-md-6 d-flex justify-content-stretch">
-      <%= link_to lair_path(lair) do %>
-        <div class="lair-card">
-          <div class="lair-image">
-            <%= cl_image_tag lair.photos.first.key, crop: :fill  %>
-          </div>
 
-          <div class="d-flex justify-content-stretch lair-content">
-            <div class="lair-info flex-grow-1">
-              <h4 class="lair-title"> <%= lair.title %></h4>
-              <p class="lair-bio"><%= lair.description %></p>
-            </div>
+        <!--Only apply link to if matching user with lair owner
+            Need to check whether user signed in as well, otherwise breaks
+            since we cannot check current_user.is_hero -->
+        <% if user_signed_in? %>
+          <% if current_user.is_hero == lair.user.is_hero %>
 
+            <%= link_to lair_path(lair) do %>
+              <%= render "lair_card", { lair: lair, add_class: "" } %>
+            <% end %>
+
+          <% else %>
+              <%= render "lair_card", { lair: lair, add_class: "lair-card-disabled"} %>
+
+          <% end %>
+        <!-- if user not signed in, display all cards, no additional style-->
+        <% else %>
+          <%= link_to lair_path(lair) do %>
+            <%= render "lair_card", { lair: lair, add_class: "" } %>
+          <% end %>
+        <% end %>
             <div class="lair-price flex-grow-1 align-content-center flex-wrap ">
               <h3 class="lair-cost mb-0">$<%= lair.price_per_night %></h3>
               <h5 class="mt-0">per night</h5>

@@ -11,16 +11,39 @@
       <div class="bio">
         <p>Bio: <%= @user.bio %></p>
       </div>
+      <% unless @user.lairs.empty? %>
+        <div class="lairs">
+          <h3> Your Lairs </h3>
+          <ul>
+            <% @user.lairs.each do |lair| %>
+            <div>
+            </div>
+            <%= link_to lair_path(lair), class: "no-decoration" do %>
+            <div class="card-product">
+              <%= cl_image_tag lair.photos.first.key, height: 250, width: 250, crop: :fill %>
+              <div class="card-product-infos">
+                <h2><%= lair.title %></h2>
+                <p><%= lair.location %></p>
+              </div>
+            </div>
+            <% end %>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       <div class="new-host">
-        <% if @owner %>
+        <% if @owner && current_user.lairs.empty? %>
           <%= link_to "Host a new lair", new_lair_path, class: "btn button blue-button" %>
+        <% elsif @owner %>
+          <%= link_to "Host another lair", new_lair_path, class: "btn button blue-button" %>
         <% end %>
       </div>
     </div>
 
-    <div class="lair-bookings <%= @user.lairs.empty? ? "" : "col-6" %>">
-      <% if @owner %>
-        <div class="bookings">
+    <div class="lair-bookings <%= @user.bookings.empty? ? "" : "col-6" %>">
+      <% unless @user.bookings.empty? %>
+        <% if @owner %>
+          <div class="bookings">
             <div>
               <h3> Your upcoming bookings </h3>
               <ul>
@@ -29,14 +52,14 @@
                   <div class="no-decoration" data-toggle="modal" data-target="#booking<%= booking.id %>">
                     <div class="card-trip">
                       <%= cl_image_tag booking.lair.photos.first.key, crop: :fill %>
-                    <div class="card-trip-infos">
-                        <div>
-                          <h2><%= booking.lair.title %></h2>
-                          <p><%= booking.lair.description %></p>
-                          <p><%= booking.start_date %></p>
-                        </div>
-                        <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
-                        <%= cl_image_tag booking.lair.user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill, gravity: :face %>
+                      <div class="card-trip-infos">
+                          <div>
+                            <h2><%= booking.lair.title %></h2>
+                            <p><%= booking.lair.description %></p>
+                            <p><%= booking.start_date %></p>
+                          </div>
+                          <h2 class="card-trip-pricing">£<%= booking.total_cost %></h2>
+                          <%= cl_image_tag booking.lair.user.photo.key, class: "card-trip-user avatar-bordered", crop: :fill, gravity: :face %>
                       </div>
                     </div>
                   </div>
@@ -50,9 +73,9 @@
                             <span aria-hidden="true">X</span>
                           </button>
                         </div>
-                          <div class="lair-info">
-                            <h3 class="text-center m-0"><%= booking.lair.location %></h3>
-                          </div>
+                        <div class="lair-info">
+                          <h3 class="text-center m-0"><%= booking.lair.location %></h3>
+                        </div>
                         <div class="modal-body p-0">
                           <div class="d-flex justify-content-stretch">
                             <div class="lair-info">
@@ -62,9 +85,7 @@
                                   <h3><%= booking.start_date.strftime("%-d %b") %></h3>
                                   <h3><%= booking.start_date.strftime("%Y") %></h3>
                                 </div>
-                                <div class="date-separator">
-
-                                </div>
+                                <div class="date-separator"></div>
                                 <div class="modal-date">
                                   <h3><%= booking.end_date.strftime("%-d %b") %></h3>
                                   <h3><%= booking.end_date.strftime("%Y") %></h3>
@@ -74,40 +95,21 @@
                             <div class="lair-price flex-grow-1 text-center d-flex flex-column justify-content-center">
                               <h4>Total Cost</h4>
                               <h4 class="lair-cost">$<%= booking.total_cost %></h4>
+                              <div><%= link_to "Delete", booking_path(booking), class: "btn button red-button", method: :delete %></div>
                             </div>
                           </div>
                         </div>
-                          <%= link_to lair_path(booking.lair) do %>
-                          <div class="button blue-button text-center"><h2>View Lair</h2></div>
-                          <% end %>
+                        <%= link_to lair_path(booking.lair) do %>
+                        <div class="button blue-button text-center"><h2>View Lair</h2></div>
+                        <% end %>
                       </div>
                     </div>
                   </div>
-
                 <% end %>
               </ul>
             </div>
-        </div>
-      <% end %>
-      <% if !@user.lairs.empty? %>
-      <div class="lairs">
-        <h3> <%= @user.hero_name %>'s Lairs </h3>
-        <ul>
-          <% @user.lairs.each do |lair| %>
-          <div>
           </div>
-          <%= link_to lair_path(lair), class: "no-decoration" do %>
-          <div class="card-product">
-            <%= cl_image_tag lair.photos.first.key, height: 250, width: 250, crop: :fill %>
-            <div class="card-product-infos">
-              <h2><%= lair.title %></h2>
-              <p><%= lair.location %></p>
-            </div>
-          </div>
-          <% end %>
-          <% end %>
-        </ul>
-      </div>
+        <% end %>
       <% end %>
     </div>
   </div>

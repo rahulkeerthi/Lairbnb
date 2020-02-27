@@ -41,6 +41,12 @@
   &:not(.lair-card-disabled):hover {
     transform: scale(1.02);
   }
+  .lair-card-disabled-button {
+    position: absolute;
+    top: 28%;
+    left: 28%;
+    z-index: -1
+  }
 }
 
 .lair-card-disabled {

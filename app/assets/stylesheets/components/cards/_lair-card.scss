@@ -80,6 +80,7 @@
     filter: gray;
   }
   .lair-card-button {
+    opacity: 0;
     z-index: 1;
     position: absolute;
     top: 28%;
@@ -88,8 +89,27 @@
     transform: skewX(-10deg);
     font-weight: bold;
     font-size: 24px;
+    animation: spin 2s 2 ease-in-out;
+    animation-direction: alternate;
+    animation-play-state: paused;
   }
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1) skewX(-10deg);
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(720deg) scale(2) skewX(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(720deg) scale(2) skewX(-10deg);
+  }
+}
+
+
 
 
 .lair-image {

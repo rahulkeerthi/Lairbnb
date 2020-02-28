@@ -1,5 +1,11 @@
 <div class="lair-card <%= add_class %>">
-  <div class="button yellow-button lair-card-disabled-button">NOT AVAILABLE TO YOU</div>
+  <div class="button yellow-button lair-card-button">
+    <% if current_user == lair.user %>
+      THIS IS YOUR LAIR
+    <% else %>
+      NOT AVAILABLE TO YOU
+    <% end %>
+  </div>
   <div class="lair-image">
     <%= cl_image_tag lair.photos.first.key, crop: :fill  %>
   </div>

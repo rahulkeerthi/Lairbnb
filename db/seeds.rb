@@ -162,3 +162,5 @@ end_date: "2023-02-24",
 user_id: 9,
 lair_id: 3,
 total_cost: 89)
+
+puts "Seeds done"

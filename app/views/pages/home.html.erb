@@ -1,11 +1,11 @@
 <div class="banner">
-  <div class="container">
-    <h1>Look over there! <br>It’s your next lair!</h1>
-    <div class="comicfont search-bar">
+  <div class="container mobile">
+    <div class="lairbnb-mobile-logo">LAIRBNB</div>
+    <div class="comicfont">
       <%= form_tag lairs_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control text-large p-4",
+          class: "form-control text-large p-4 home-search-bar",
           placeholder: "Find your next lair . . . "
         %>
       <% end %>

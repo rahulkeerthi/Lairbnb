@@ -8,3 +8,51 @@
   padding-bottom: 80px;
   // margin: 0;
 }
+
+.home-search-bar {
+  position: fixed;
+  top: 75%;
+  left: 25%;
+  width: 40%;
+  font-size: 3vw;
+}
+
+.lairbnb-mobile-logo {
+  visibility: hidden;
+  font-family: $body-font;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 3px black;
+}
+
+
+
+@media(max-width: 992px) {
+    .home-search-bar
+    {
+      transition: 0.7s;
+      // top: 20%;
+      margin-left: auto;
+      margin-right: auto;
+      width: auto;
+      font-size: 5vw;
+    }
+
+    .banner {
+      background: url("noname.png");
+    }
+
+    .lairbnb-mobile-logo {
+      visibility: visible;
+      // top: 10%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 20vw;
+    }
+
+    .mobile {
+      position: relative;
+      display: block;
+    }
+}

@@ -2,11 +2,12 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1506019162706-2459e35cc663");
-  background-size: cover;
-  background-position: center;
+  background: url("withname.png");
+  background-size: 100%;
+  background-position: top center;
   // padding: 200px; # not sure what this did but seems to work fine without as i've added in a content-wrap
   position: relative;
+  max-height: 960px;
 }
 
 .banner h1 {
@@ -15,11 +16,10 @@
   line-height: 1.4;
 }
 
-.banner form {
-  width: 60%;
-}
+// .banner form {
+//   width: 60%;
+// }
 .banner-search {
   height: 50px;
   font-family: $my-font;
-
 }

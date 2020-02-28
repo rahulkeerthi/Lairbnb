@@ -33,7 +33,7 @@
           <% if current_user.is_hero == lair.user.is_hero %>
             <!--using add_class function to add css classes to lair cards based on current user-->
             <% if lair.user == current_user %>
-              <%= link_to lair_path(lair) do %>
+              <%= link_to lair_path(lair), class: 'link-to-text-color' do %>
                 <%= render "lair_card", { lair: lair, add_class: "lair-card-owner" } %>
               <% end %>
             <% else %>

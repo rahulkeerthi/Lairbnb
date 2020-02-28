@@ -1,11 +1,11 @@
 .card-product {
   overflow: hidden;
   height: 120px;
-  background: white;
+  background: $card-product;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  border: 3px solid black;
+  border: 3px solid $border;
   transition: 0.5s;
   &:hover {
     transform: scale(1.02);
@@ -37,7 +37,6 @@
 }
 
 .lair-card {
-  position: relative;
   transition: 0.5s;
   &:not(.lair-card-disabled):hover {
     transform: scale(1.02);
@@ -50,26 +49,7 @@
   }
 }
 
-.lair-card-owner {
-  position: relative;
-  transition: 0.5s;
-  &:not(.lair-card-disabled):hover {
-    transform: scale(1.02);
-  }
-  .lair-card-button {
-    z-index: 1;
-    position: absolute;
-    top: 28%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    transform: skewX(-10deg);
-    font-weight: bold;
-    font-size: 24px;
-  }
-}
-
 .lair-card-disabled {
-  position: relative;
   opacity: 0.8;
   .lair-image, .card-description {
     -webkit-filter: grayscale(100%);
@@ -80,11 +60,32 @@
     filter: gray;
   }
   .lair-card-button {
-    opacity: 0;
     z-index: 1;
     position: absolute;
     top: 28%;
     left: 28%;
+    transform: translate(-50%, -50%);
+    transform: skewX(-10deg);
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .yellow-button {
+    background-color: $yellow;
+  }
+}
+
+.lair-card-owner {
+  position: relative;
+  transition: 0.5s;
+  &:not(.lair-card-disabled):hover {
+    transform: scale(1.02);
+  }
+  .lair-card-button {
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
+    top: 28%;
+    left: 30%;
     transform: translate(-50%, -50%);
     transform: skewX(-10deg);
     font-weight: bold;
@@ -108,9 +109,6 @@
     transform: rotate(720deg) scale(2) skewX(-10deg);
   }
 }
-
-
-
 
 .lair-image {
   width: 500px;

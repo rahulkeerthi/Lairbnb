@@ -18,7 +18,7 @@
             <% @user.lairs.each do |lair| %>
             <div>
             </div>
-            <%= link_to lair_path(lair), class: "no-decoration" do %>
+            <%= link_to lair_path(lair), class: "link-to-text-color" do %>
             <div class="card-product">
               <%= cl_image_tag lair.photos.first.key, height: 250, width: 250, crop: :fill %>
               <div class="card-product-infos">

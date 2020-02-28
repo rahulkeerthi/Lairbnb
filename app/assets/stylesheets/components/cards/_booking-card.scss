@@ -4,7 +4,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 24px;
   transition: 0.5s;
-  border: 3px solid black;
+  border: 3px solid $border;
   &:hover {
     transform: scale(1.02);
   }

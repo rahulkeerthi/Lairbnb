@@ -25,4 +25,8 @@ require("packs/calendar")
 import "bootstrap";
 import { alertSpin } from '../components/alert-spin';
 
-alertSpin();
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  alertSpin();
+});

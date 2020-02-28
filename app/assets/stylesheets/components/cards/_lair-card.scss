@@ -60,6 +60,7 @@
     filter: gray;
   }
   .lair-card-button {
+    opacity: 0;
     z-index: 1;
     position: absolute;
     top: 28%;
@@ -68,6 +69,9 @@
     transform: skewX(-10deg);
     font-weight: bold;
     font-size: 24px;
+    animation: spin 2s 2 ease-in-out;
+    animation-direction: alternate;
+    animation-play-state: paused;
   }
   .yellow-button {
     background-color: $yellow;
@@ -81,7 +85,6 @@
     transform: scale(1.02);
   }
   .lair-card-button {
-    opacity: 0;
     z-index: 1;
     position: absolute;
     top: 28%;
@@ -90,9 +93,6 @@
     transform: skewX(-10deg);
     font-weight: bold;
     font-size: 24px;
-    animation: spin 2s 2 ease-in-out;
-    animation-direction: alternate;
-    animation-play-state: paused;
   }
 }
 

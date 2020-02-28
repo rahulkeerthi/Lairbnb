@@ -8,8 +8,8 @@
   <% end %>
 </div>
 <hr>
-<div class="container content-wrap">
-  <div class="">
+<div class="content-wrap">
+  <div class="container">
     <%= form_tag lairs_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
       <%= text_field_tag :query,
         params[:query],
@@ -17,7 +17,7 @@
         placeholder: "Find a lair..." %>
       <%= submit_tag "Search!", class: "button blue-button" %>
     <% end %>
-  </div>
+
   <!-- display message if result of search was empty -->
   <% unless @found %>
     <div class="text-center alert alert-danger">No lairs meet your search criteria :(</div>
@@ -52,5 +52,6 @@
         <% end %>
       </div>
       <% end %>
+  </div>
   </div>
 </div>

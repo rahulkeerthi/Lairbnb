@@ -1,9 +1,9 @@
 .navbar-lewagon {
   z-index: 100;
   justify-content: space-between;
-  background: white;
-  border-bottom: 5px solid $blue;
-  color: white;
+  background: $navbar-background;
+  border-bottom: 5px solid $nav-border;
+  color: $navbar-font-color;
   position: sticky;
   top: 0px;
   width: 100%;

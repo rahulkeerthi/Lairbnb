@@ -23,7 +23,7 @@
 
 a, a:hover {
   text-decoration: none;
-  color: black;
+  color: $hover-color;
 }
 
 .form {
@@ -36,14 +36,13 @@ a, a:hover {
   margin: 5px;
 }
 
-.width-50 {
+.form-50 {
   width: 50%;
-}
-
-.comicfont {
+  transform: skewX(-10deg);
+  border: 3px solid black;
+  color: black;
+  background-color: white;
   font-family: $my-font;
-}
-
-.text-large {
-  font-size: 32px;
+  padding: 10px 15px;
+  margin: 5px;
 }

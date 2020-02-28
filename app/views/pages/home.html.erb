@@ -1,12 +1,12 @@
 <div class="banner">
   <div class="container">
     <h1>Look over there! <br>It’s your next lair!</h1>
-    <div class="search-bar">
+    <div class="comicfont search-bar">
       <%= form_tag lairs_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
-          placeholder: "Search for your next lair..."
+          class: "form-control text-large p-4",
+          placeholder: "Find your next lair . . . "
         %>
       <% end %>
     </div>

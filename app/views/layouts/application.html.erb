@@ -17,11 +17,15 @@
     <% end %>
 
     <div class="page-container">
+      <% unless action_name == "home" %>
       <%= render 'shared/navbar' %>
-      <div class="content-wrap">
+      <% end %>
+      <div class="">
         <%= yield %>
       </div>
-      <%= render 'shared/footer' %>
+      <% unless action_name == "home" %>
+        <%= render 'shared/footer' %>
+      <% end %>
     </div>
   </body>
 </html>

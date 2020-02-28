@@ -2,12 +2,12 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url("withname.png");
+  background: url("https://res.cloudinary.com/rahaluha/image/upload/v1582894610/Lewagon-Lairbnb/logo/withname_mvlezc.png");
   background-size: 100%;
   background-position: top center;
   // padding: 200px; # not sure what this did but seems to work fine without as i've added in a content-wrap
   position: relative;
-  max-height: 960px;
+  // max-height: 80vh;
 }
 
 .banner h1 {

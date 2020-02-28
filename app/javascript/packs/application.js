@@ -23,3 +23,6 @@ require("packs/calendar")
 // ----------------------------------------------------
 
 import "bootstrap";
+import { alertSpin } from '../components/alert-spin';
+
+alertSpin();

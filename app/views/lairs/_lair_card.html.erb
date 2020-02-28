@@ -3,7 +3,7 @@
     <% if current_user == lair.user %>
       THIS IS YOUR LAIR
     <% else %>
-      NOT AVAILABLE TO YOU
+      YOU ARE NOT A <%= current_user.is_hero ? "VILLAIN" : "HERO" %>
     <% end %>
   </div>
   <div class="lair-image">

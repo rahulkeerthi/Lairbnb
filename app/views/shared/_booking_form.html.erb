@@ -1,4 +1,4 @@
-  <%= simple_form_for [ @lair, @booking ], remote: true do |f| %>
+  <%= simple_form_for [ @lair, @booking ] do |f| %>
     <%= f.input :start_date, input_html: { class: 'dropdown' } %>
     <%= f.input :end_date, input_html: { class: 'dropdown' } %>
     <h5 class="text-center" id="counter" class="" data-count="0"><strong>You haven't picked your dates yet!</strong></h5>

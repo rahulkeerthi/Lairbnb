@@ -13,8 +13,10 @@ class BookingsController < ApplicationController
     @booking.total_cost = (@booking.end_date - @booking.start_date).to_i * @booking.lair.price_per_night
     @user_bookings = current_user.bookings
     if @booking.save
+      flash[:notice] = 'Your booking has been accepted!'
       redirect_to user_path(current_user)
     else
+      flash[:notice] = 'Sorry, selected date taken...'
       render "lairs/show"
     end
   end

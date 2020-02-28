@@ -8,12 +8,12 @@
   <% end %>
 </div>
 <hr>
-<div class="container">
+<div class="container content-wrap">
   <div class="">
     <%= form_tag lairs_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control form-50",
+        class: "form-control form width-50",
         placeholder: "Find a lair..." %>
       <%= submit_tag "Search!", class: "button blue-button" %>
     <% end %>
@@ -31,8 +31,15 @@
             since we cannot check current_user.is_hero -->
         <% if user_signed_in? %>
           <% if current_user.is_hero == lair.user.is_hero %>
-            <%= link_to lair_path(lair) do %>
-              <%= render "lair_card", { lair: lair, add_class: "" } %>
+            <!--using add_class function to add css classes to lair cards based on current user-->
+            <% if lair.user == current_user %>
+              <%= link_to lair_path(lair) do %>
+                <%= render "lair_card", { lair: lair, add_class: "lair-card-owner" } %>
+              <% end %>
+            <% else %>
+              <%= link_to lair_path(lair) do %>
+                <%= render "lair_card", { lair: lair, add_class: "" } %>
+              <% end %>
             <% end %>
           <% else %>
             <%= render "lair_card", { lair: lair, add_class: "lair-card-disabled"} %>

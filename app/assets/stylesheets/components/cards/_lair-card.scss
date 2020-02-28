@@ -37,11 +37,12 @@
 }
 
 .lair-card {
+  position: relative;
   transition: 0.5s;
   &:not(.lair-card-disabled):hover {
     transform: scale(1.02);
   }
-  .lair-card-disabled-button {
+  .lair-card-button {
     position: absolute;
     top: 28%;
     left: 28%;
@@ -49,7 +50,26 @@
   }
 }
 
+.lair-card-owner {
+  position: relative;
+  transition: 0.5s;
+  &:not(.lair-card-disabled):hover {
+    transform: scale(1.02);
+  }
+  .lair-card-button {
+    z-index: 1;
+    position: absolute;
+    top: 28%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    transform: skewX(-10deg);
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+
 .lair-card-disabled {
+  position: relative;
   opacity: 0.8;
   .lair-image, .card-description {
     -webkit-filter: grayscale(100%);
@@ -59,7 +79,7 @@
     filter: grayscale(100%);
     filter: gray;
   }
-  .lair-card-disabled-button {
+  .lair-card-button {
     z-index: 1;
     position: absolute;
     top: 28%;

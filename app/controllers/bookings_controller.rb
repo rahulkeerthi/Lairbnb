@@ -16,8 +16,8 @@ class BookingsController < ApplicationController
       flash[:notice] = 'Your booking has been accepted!'
       redirect_to user_path(current_user)
     else
+      flash[:notice] = 'Sorry, selected date taken...'
       render "lairs/show"
-      flash[:notice] = 'Sorry...'
     end
   end
 
